@@ -1,7 +1,5 @@
 """Support for WLED updates."""
 
-from __future__ import annotations
-
 from typing import Any, cast
 
 from homeassistant.components.update import (
@@ -30,7 +28,7 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up WLED update based on a config entry."""
-    async_add_entities([WLEDUpdateEntity(entry.runtime_data, hass.data[WLED_KEY], entry)])
+    async_add_entities([WLEDUpdateEntity(entry.runtime_data, hass.data[WLED_KEY])])
 
 
 class WLEDUpdateEntity(WLEDEntity, UpdateEntity):
@@ -46,12 +44,10 @@ class WLEDUpdateEntity(WLEDEntity, UpdateEntity):
         self,
         coordinator: WLEDDataUpdateCoordinator,
         releases_coordinator: WLEDReleasesDataUpdateCoordinator,
-        entry: WLEDConfigEntry,
     ) -> None:
         """Initialize the update entity."""
         super().__init__(coordinator=coordinator)
         self.releases_coordinator = releases_coordinator
-        self.entry = entry
         self._attr_unique_id = coordinator.data.info.mac_address
 
     async def async_added_to_hass(self) -> None:
@@ -81,7 +77,7 @@ class WLEDUpdateEntity(WLEDEntity, UpdateEntity):
     @property
     def _exclude_nightly(self) -> bool:
         """Check if nightly versions should be excluded."""
-        return self.entry.options.get("exclude_nightly", True)
+        return self.coordinator.config_entry.options.get("exclude_nightly", True)
 
     @property
     def latest_version(self) -> str | None:
