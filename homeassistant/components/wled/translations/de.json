@@ -1,0 +1,169 @@
+{
+  "common": {
+    "unsupported_version": "Die Firmware-Version des WLED-Geräts wird nicht unterstützt."
+  },
+  "config": {
+    "abort": {
+      "already_configured": "Gerät wurde bereits konfiguriert.",
+      "cannot_connect": "Verbindung fehlgeschlagen.",
+      "reconfigure_successful": "Konfiguration erfolgreich aktualisiert.",
+      "unique_id_mismatch": "MAC-Adresse stimmt nicht mit dem konfigurierten Gerät überein. Es wurde erwartet, eine Verbindung mit dem Gerät mit der MAC-Adresse `{expected_mac}` herzustellen, aber verbunden wurde mit dem Gerät mit der MAC-Adresse `{actual_mac}`.\n\nBitte stelle sicher, dass du dasselbe Gerät neu konfigurierst.",
+      "unsupported_version": "Die Firmware-Version des WLED-Geräts wird nicht unterstützt."
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen.",
+      "unsupported_version": "Die Firmware-Version des WLED-Geräts wird nicht unterstützt."
+    },
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "data": {
+          "host": "Host"
+        },
+        "data_description": {
+          "host": "Hostname oder IP-Adresse deines WLED-Geräts."
+        },
+        "description": "Richte dein WLED für die Integration mit Home Assistant ein."
+      },
+      "zeroconf_confirm": {
+        "description": "Möchtest du das WLED mit dem Namen `{name}` zu Home Assistant hinzufügen?",
+        "title": "WLED-Gerät gefunden"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "firmware": {
+        "name": "Firmware"
+      }
+    },
+    "light": {
+      "main": {
+        "name": "Haupt"
+      },
+      "segment": {
+        "name": "Segment {segment}"
+      }
+    },
+    "number": {
+      "intensity": {
+        "name": "Intensität"
+      },
+      "segment_intensity": {
+        "name": "Segment {segment} Intensität"
+      },
+      "segment_speed": {
+        "name": "Segment {segment} Geschwindigkeit"
+      },
+      "speed": {
+        "name": "Geschwindigkeit"
+      }
+    },
+    "select": {
+      "color_palette": {
+        "name": "Farbpalette"
+      },
+      "live_override": {
+        "name": "Live-Überschreibung",
+        "state": {
+          "0": "Aus",
+          "1": "An",
+          "2": "Bis zum Neustart des Geräts"
+        }
+      },
+      "playlist": {
+        "name": "Wiedergabeliste"
+      },
+      "preset": {
+        "name": "Voreinstellung"
+      },
+      "segment_color_palette": {
+        "name": "Segment {segment} Farbpalette"
+      }
+    },
+    "sensor": {
+      "estimated_current": {
+        "name": "Geschätzter Strom"
+      },
+      "free_heap": {
+        "name": "Freier Speicher"
+      },
+      "info_leds_count": {
+        "name": "LED-Anzahl",
+        "unit_of_measurement": "LEDs"
+      },
+      "info_leds_max_power": {
+        "name": "Maximaler Strom"
+      },
+      "ip": {
+        "name": "IP"
+      },
+      "wifi_bssid": {
+        "name": "WLAN-BSSID"
+      },
+      "wifi_channel": {
+        "name": "WLAN-Kanal"
+      },
+      "wifi_rssi": {
+        "name": "WLAN-RSSI"
+      },
+      "wifi_signal": {
+        "name": "WLAN-Signal"
+      }
+    },
+    "switch": {
+      "freeze": {
+        "name": "Einfrieren"
+      },
+      "nightlight": {
+        "name": "Nachtlicht"
+      },
+      "reverse": {
+        "name": "Umkehren"
+      },
+      "segment_freeze": {
+        "name": "Segment {segment} einfrieren"
+      },
+      "segment_reverse": {
+        "name": "Segment {segment} umkehren"
+      },
+      "sync_receive": {
+        "name": "Sync empfangen"
+      },
+      "sync_send": {
+        "name": "Sync senden"
+      }
+    }
+  },
+  "exceptions": {
+    "connection_error": {
+      "message": "Fehler bei der Kommunikation mit der WLED-API: {error}"
+    },
+    "invalid_response_github_error": {
+      "message": "Ungültige Antwort von der GitHub-API: {error}"
+    },
+    "invalid_response_wled_error": {
+      "message": "Ungültige Antwort von der WLED-API: {error}"
+    },
+    "mac_address_mismatch": {
+      "message": "MAC-Adresse stimmt nicht mit dem konfigurierten Gerät überein. Erwartet wurde die MAC-Adresse {expected_mac}, aber verbunden wurde mit der MAC-Adresse {actual_mac}."
+    },
+    "unsupported_version": {
+      "message": "Die Firmware-Version des WLED-Geräts wird nicht unterstützt: {error}"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "keep_master_light": "'Haupt'-Steuerung auch bei einzelnem LED-Segment hinzufügen",
+          "exclude_nightly": "Nightly-Versionen von Updates ausschließen"
+        },
+        "data_description": {
+          "keep_master_light": "Stellt sicher, dass die Hauptlichtsteuerung immer verfügbar ist, wenn du Segmente dynamisch per Automatisierung hinzufügst oder entfernst.",
+          "exclude_nightly": "Wenn aktiviert, werden Nightly-(Entwicklungs-)Versionen nicht als verfügbare Updates angezeigt. Es werden nur stabile und Beta-Versionen angeboten."
+        }
+      }
+    }
+  }
+}
